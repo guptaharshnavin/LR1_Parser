@@ -74,8 +74,10 @@ def return_first(input_grammar):
                 non_term_first = return_first(sel_prod)
                 # Appending First Of Non-Terminal To First List
                 for i in non_term_first:
-                    if i == 'e':
+                    if i == 'e':  # Ignore Epsilon, Dont Add Into First List
                         continue
+                    if i in first_list:
+                        continue  # Dont Add Already Present Elements In First List, Dont Add Duplicate Elements
                     first_list.append(i)
                 # If Epsilon Is Not Present In Non-Term First, Then First Find Stops For The Production
                 if 'e' not in non_term_first:

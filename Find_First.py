@@ -51,6 +51,8 @@ def return_first(input_grammar):
         # Outer Loop Accessing Individual Product Of Every Non-Terminal
         for c in g:
             # Inner Loop Accessing The Individual Token Of Production
+            if c == '$':
+                continue
             if c == 'e':
                 # If The Token Is Epsilon, Then First Find Stops, For The Production
                 first_list.append(c)
